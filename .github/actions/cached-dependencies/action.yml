@@ -1,0 +1,15 @@
+name: 'Cache Dependencies'
+description: 'Get the dependencies (via npm) and cache them'
+runs:
+  using: 'composite'
+  steps:
+    - name: Cache Dependencies
+      id: cache
+      uses: actions/cache@v6
+      with:
+        path: node_modules
+        key: dep-node-modules-${{hashFiles('**/package.json')}}
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci 
+      shell: bash
