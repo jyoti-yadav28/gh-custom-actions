@@ -64,5 +64,7 @@ jobs:
   information:
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v7
       - name: Print information using JavaScript action 
         uses: ./.github/actions/deploy-s3-bucket
