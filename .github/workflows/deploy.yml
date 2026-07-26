@@ -60,11 +60,11 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
-        uses: ./.github/actions/deploy-s3-bucket
+        uses: ./.github/actions/deploy-s3-docker
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         with:
           bucket: gh-action-s3bucket 
-          bucket-region: ap-south-1
+          # bucket-region: ap-south-1
           dist-folder: ./dist
