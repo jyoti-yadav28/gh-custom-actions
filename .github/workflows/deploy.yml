@@ -66,5 +66,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         with:
           bucket: gh-action-s3bucket 
-          # bucket-region: ap-south-1
+          bucket-region: ap-south-1
           dist-folder: ./dist
